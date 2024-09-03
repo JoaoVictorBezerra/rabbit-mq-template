@@ -1,5 +1,6 @@
 package com.joaovictor.communicationmq.config.rabbitmq;
 
+import com.joaovictor.communicationmq.config.constants.RabbitMQConstants;
 import org.springframework.amqp.core.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,12 +10,12 @@ public class DefaultQueueConfig {
 
     @Bean
     DirectExchange defaultExchange() {
-        return new DirectExchange("default-exchange");
+        return new DirectExchange(RabbitMQConstants.DEFAULT_EXCHANGE);
     }
 
     @Bean
     Queue defaultQueue() {
-        return QueueBuilder.durable("default-queue").build();
+        return QueueBuilder.durable(RabbitMQConstants.DEFAULT_QUEUE).build();
     }
 
     @Bean
@@ -22,6 +23,6 @@ public class DefaultQueueConfig {
         return BindingBuilder
               .bind(defaultQueue())
               .to(defaultExchange())
-              .with("default-routing-key");
+              .with(RabbitMQConstants.DEFAULT_ROUTING_KEY);
     }
 }

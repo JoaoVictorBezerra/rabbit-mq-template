@@ -7,12 +7,9 @@ public class RabbitMQConstants {
         throw new IllegalArgumentException("This is an utility class!");
     }
 
-//    @Value("${rabbit.mq.queue.default}")
-    public static String DEFAULT_QUEUE = "default-queue";
+    public static final String DEFAULT_QUEUE = "${rabbit.mq.queue.default}";
 
-//    @Value("${rabbit.mq.exchange.default}")
-    public static String DEFAULT_EXCHANGE = "exchange-default";
+    public static final String DEFAULT_EXCHANGE = "${rabbit.mq.exchange.default}";
 
-//    @Value("${rabbit.mq.routing.key.default}")
-    public static String DEFAULT_ROUTING_KEY = "default-routing-key";
+    public static final String DEFAULT_ROUTING_KEY = "${rabbit.mq.routing.key.default}";
 }
